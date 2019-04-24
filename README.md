@@ -5,13 +5,13 @@
 ```bash
 sh run.sh
 ```
-###OR
+##OR
 
 ```bash
 docker-compose build && docker-compose up -d
 ```
 
-###Assumption : Docker/Kubernetes
+##Assumption : Docker/Kubernetes
 ```bash
 containerization environment needs to be setup
 ```
