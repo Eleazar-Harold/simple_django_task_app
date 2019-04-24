@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==2.2"
+six = "*"
+gunicorn = "*"
+whitenoise = "*"
+requests = "*"
+psycopg2-binary = "*"
+djangorestframework = "*"
+django-debug-toolbar = "*"
+django-compressor = "*"
+autopep8 = "*"
+django-widget-tweaks = "*"
+celery = "==4.3"
+watchdog = "*"
+django-background-tasks = "*"
+
+[requires]
+python_version = "3.7"

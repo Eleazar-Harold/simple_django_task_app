@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web: &web
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8765:8765"
+    restart: "always"
+    depends_on:
+      - db
+      - mq
+      - wk
+  db:
+    image: postgres
+    restart: "always"
+  # rabbit message queue
+  mq:
+    image: gonkulatorlabs/rabbitmq # rabbitmq:3.7.14-alpine
+    restart: "always"
+  # celery worker service
+  wk:
+    <<: *web
+    command: bash -c "celery -A main.todo worker -l info && celery -A main.todo beat -l info"
+    ports: []
+    depends_on: 
+      - mq
+      - db
