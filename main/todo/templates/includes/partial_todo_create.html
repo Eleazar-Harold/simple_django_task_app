@@ -1,0 +1,16 @@
+<form method="post" action="{% url 'main.todo:todo_create' %}" class="js-todo-create-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">New To-Do Task</h4>
+  </div>
+  <div class="modal-body">
+    {% include 'includes/partial_todo_form.html' %}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-sm btn-primary">Create To-Do</button>
+  </div>
+</form>

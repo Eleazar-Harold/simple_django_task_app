@@ -1,0 +1,18 @@
+<button type="button"
+{% if todo.complete %}
+class="btn btn-xs btn-warning js-update-todo disabled"
+{% else %}
+class="btn btn-xs btn-warning js-update-todo"
+{% endif %}
+    data-url="{% url 'main.todo:todo_update' todo.id %}">
+        <span class="glyphicon glyphicon-pencil"></span>
+</button>
+<button type="button"
+{% if todo.complete %}
+class="btn btn-xs btn-danger js-delete-todo"
+{% else %}
+class="btn btn-xs btn-danger js-delete-todo disabled"
+{% endif %}
+    data-url="{% url 'main.todo:todo_delete' todo.id %}">
+        <span class="glyphicon glyphicon-trash"></span>
+</button>

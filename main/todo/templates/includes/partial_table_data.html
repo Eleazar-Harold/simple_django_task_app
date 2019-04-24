@@ -1,0 +1,16 @@
+<td>{{ todo.description }}</td>
+<td>{{ todo.taskdate |date:"d/m/Y" }}</td>
+<td>
+{% if todo.complete %}
+<span class="label label-success">Done</span>
+{% elif todo.expire %}
+<span class="label label-danger">Expired</span>
+{% elif todo.started %}
+<span class="label label-warning">Ongoing</span>
+{% else %}
+<span class="label label-info">Due-Start</span>
+{% endif %}
+</td>
+<td style="width: 150px">
+    {% include 'includes/partial_action.html' %}
+</td>

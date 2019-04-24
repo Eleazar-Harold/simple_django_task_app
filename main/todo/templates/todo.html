@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'todo/js/todo.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Todos</h1>
+
+  <p>
+    <button type="button" class="btn btn-sm btn-primary js-create-todo" data-url="{% url 'main.todo:todo_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New ToDo
+    </button>
+  </p>
+  {% include 'includes/alerts.html' %}
+  <table class="table" id="todo-table">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Task Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'includes/partial_todo_list.html' %}
+    </tbody>
+  </table>
+
+  {% if todos.has_other_pages %}
+    <ul class="pagination">
+      {% if todos.has_previous %}
+        <li><a href="?page={{ todos.previous_page_number }}">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+      {% for i in todos.paginator.page_range %}
+        {% if todos.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if todos.has_next %}
+        <li><a href="?page={{ todos.next_page_number }}">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+  {% endif %}
+
+  {% include 'includes/modal.html' %}
+{% endblock %}

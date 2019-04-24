@@ -1,0 +1,16 @@
+{% for todo in todos %}
+    {% if todo.expire %}
+    <tr class="warning">
+        {% include 'includes/partial_table_data.html' %}
+    </tr>
+    {% else %}
+    <tr>
+        {% include 'includes/partial_table_data.html' %}
+    </tr>
+    {% endif %}
+
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No Tasks</td>
+  </tr>
+{% endfor %}
