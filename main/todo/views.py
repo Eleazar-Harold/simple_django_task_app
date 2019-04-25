@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from django.views.generic import (TemplateView, CreateView, UpdateView, DeleteView, DetailView, ListView)
+from django.views.generic import (TemplateView,)
 from django.template.loader import render_to_string
 from django.core.paginator import (Paginator, EmptyPage, PageNotAnInteger)
 from django.http import JsonResponse

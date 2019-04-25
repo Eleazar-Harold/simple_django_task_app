@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery.utils.log import get_task_logger
 from datetime import datetime, timedelta
+from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from main.todo.models import Todo
 from main.celery import app
@@ -11,7 +12,7 @@ logger = get_task_logger(__name__)
 
 @app.task
 def cross_check_tasks():
-    timehold = datetime.now() - timedelta(hours=5)
+    timehold = timezone.now()  # datetime.now() - timedelta(hours=5)
     tasks = Todo.objects.filter(taskdate__lte=timehold)
     if tasks:
         print(str(tasks.count) +' tasks to cross check found...')
@@ -26,7 +27,7 @@ def cross_check_tasks():
 
 @background(schedule=60)
 def inline_task_checker(pk):
-    timehold = datetime.now() - timedelta(hours=4)
+    timehold = timezone.now()  # datetime.now() - timedelta(hours=4)
     tasks = Todo.objects.filter(taskdate__lt=timehold, id=pk)
     for task in tasks:
         logger.info('checking task {0}'.format(task.description))
@@ -39,7 +40,7 @@ def inline_task_checker(pk):
 
 @background(schedule=600)
 def inline_task_expirer(pk):
-    timehold = datetime.now() - timedelta(hours=4)
+    timehold = timezone.now()  # datetime.now() - timedelta(hours=4)
     try:
         tasks = Todo.objects.filter(taskdate__lt=timehold, id=pk)
         for task in tasks:
@@ -57,7 +58,7 @@ def inline_task_expirer(pk):
 @app.task
 def expired_tasks(self):
     try:
-        tasks = Todo.objects.filter(taskdate__lt=datetime.now())
+        tasks = Todo.objects.filter(taskdate__lt=timezone.now())
         for task in tasks:
             print('execution task {}'.format(task.description))
             if task.complete == True:
