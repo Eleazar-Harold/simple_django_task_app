@@ -18,7 +18,7 @@ $(function () {
                     document.getElementById("id_taskdate").value = moment(new Date().toString()).format('MM/DD/Y H:MM:ss');
                 }
                 jQuery("#id_taskdate").datetimepicker({
-                  timepicker: false,
+                  timepicker: true,
                   format: "m/d/Y h:m:s",
                   formatTime: "h:m:s",
                   formatDate: "m/d/Y",
