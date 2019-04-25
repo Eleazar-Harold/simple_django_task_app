@@ -31,10 +31,9 @@ def inline_task_checker(pk):
     tasks = Todo.objects.filter(taskdate__lt=timehold, id=pk)
     for task in tasks:
         logger.info('checking task {0}'.format(task.description))
-        if task.started == False:
-            task.started = True
-            task.save()
-            print('task -->' + task.description + ' started')
+        task.started = True if task.started == False else True
+        task.save()
+        print('task -->' + task.description + ' started')
     inline_task_expirer(pk)
         
 
@@ -46,8 +45,6 @@ def inline_task_expirer(pk):
         for task in tasks:
             print('execution task {}'.format(task.description))
             if task.complete == True:
-                task.expire = True
-            elif task.complete == False:
                 task.expire = True
             task.save()
             print('task --> ' + task.description + ' expired')
@@ -61,10 +58,7 @@ def expired_tasks(self):
         tasks = Todo.objects.filter(taskdate__lt=timezone.now())
         for task in tasks:
             print('execution task {}'.format(task.description))
-            if task.complete == True:
-                task.expire = True
-            elif task.complete == False:
-                task.expire = True
+            task.expire = True if task.complete == True else True
             task.save()
             print('task --> ' + task.description + ' expired')
     except (TypeError, ValueError, MemoryError, RuntimeError) as e:
