@@ -7,8 +7,8 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=root
       - DB_HOST=db
-      - DB_PORT=5433
-      - DJANGO_SETTINGS_MODULE=main.settings.dev
+      - DB_PORT=5432
+      - DJANGO_SETTINGS_MODULE=main.settings.prod
     build: .
     volumes:
       - .:/code
@@ -25,7 +25,7 @@ services:
       - POSTGRES_DB=todo_app_db
       - POSTGRES_PASSWORD=root
     ports:
-      - 5433:5432
+      - "5432:5432"
     restart: "always"
   # rabbit message queue
   mq:
