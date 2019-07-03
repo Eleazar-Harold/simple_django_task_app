@@ -17,8 +17,7 @@ def cross_check_tasks():
     if tasks:
         print(str(tasks.count) +' tasks to cross check found...')
         for task in tasks:
-            if task.started == False:
-                task.started = True
+            task.started = True if task.started == False else task.started
             task.save()
             print('task -->' + task.description + ' started')
     else:
