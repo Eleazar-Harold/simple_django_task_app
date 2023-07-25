@@ -17,7 +17,7 @@ django-debug-toolbar = "*"
 django-compressor = "*"
 autopep8 = "*"
 django-widget-tweaks = "*"
-celery = "==4.3"
+celery = "==5.2.2"
 watchdog = "*"
 django-background-tasks = "*"
 
