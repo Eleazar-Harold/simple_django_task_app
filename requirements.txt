@@ -22,10 +22,10 @@ django-appconf==1.0.5; python_version >= '3.6'
 django-background-tasks==1.2.0
 django-compat==1.0.15
 django-compressor==2.2
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 django-widget-tweaks==1.4.3
 django==2.2.13
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 gunicorn==19.9.0
 idna==2.8
 importlib-metadata==4.10.0; python_version < '3.8'
