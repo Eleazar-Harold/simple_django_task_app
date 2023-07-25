@@ -9,10 +9,10 @@
 amqp==5.0.9; python_version >= '3.6'
 argh==0.26.2
 autopep8==1.4.4
-billiard==3.6.4.0
-cached-property==1.5.2; python_version < '3.8'
-celery==5.2.2
-certifi==2021.10.8
+billiard>=3.6.4.0
+cached-property>=1.5.2; python_version < '3.8'
+celery>=5.2.2
+certifi>=2021.10.8
 chardet==3.0.4
 click-didyoumean==0.3.0; python_full_version >= '3.6.2' and python_full_version < '4.0.0'
 click-plugins==1.1.1
