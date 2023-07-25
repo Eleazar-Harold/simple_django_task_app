@@ -13,7 +13,7 @@ django-compressor==2.2
 django-debug-toolbar==1.11.1
 django-widget-tweaks==1.4.3
 django==2.2.13
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 gunicorn==19.9.0
 idna==2.8
 importlib-metadata==3.10.1 ; python_version < '3.8'
