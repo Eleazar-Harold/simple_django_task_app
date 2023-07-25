@@ -2,7 +2,7 @@
 amqp==2.6.1
 argh==0.26.2
 autopep8==1.4.4
-billiard==3.6.3.0
+billiard==3.6.4.0
 celery==4.3
 certifi==2020.12.5
 chardet==3.0.4
@@ -10,13 +10,13 @@ django-appconf==1.0.4
 django-background-tasks==1.2.0
 django-compat==1.0.15
 django-compressor==2.2
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 django-widget-tweaks==1.4.3
 django==2.2.13
 djangorestframework==3.11.2
 gunicorn==19.9.0
 idna==2.8
-importlib-metadata==3.7.3 ; python_version < '3.8'
+importlib-metadata==3.10.1 ; python_version < '3.8'
 kombu==4.6.11
 pathtools==0.1.2
 psycopg2-binary==2.8.2
